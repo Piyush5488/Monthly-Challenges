@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css_files %}
+    <link rel='stylesheet' href="{% static 'challenges/challenge.css' %}">
+    <link rel='stylesheet' href="{% static 'challenges/snippets/navbar.css' %}">
+{% endblock  %}
+{% block page_title %}{{month|title}} Challenge{% endblock %}
+
+{% block page_body %}
+    {% include 'challenges/snippets/navbar.html' with current_page='Monthly Challenge'%}
+    <h1>{{month|title}}'s Challenge</h1>
+    {% if text %}
+        <h2>{{text}}</h2>
+    {% else %}
+        <p>There are no challenges for this month</p>
+    {% endif %}
+{% endblock %}
